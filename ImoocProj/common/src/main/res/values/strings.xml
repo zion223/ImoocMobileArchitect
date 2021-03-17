@@ -1,0 +1,44 @@
+<resources>
+    <string name="if_home">&#xe8c6;</string>
+    <string name="if_recommend">&#xe63f;</string>
+    <string name="if_chat">&#xe63c;</string>
+    <string name="if_profile">&#xe634;</string>
+    <string name="if_category">&#xe600;</string>
+    <string name="if_favorite">&#xe639;</string>
+    <string name="if_favorite1">&#xe620;</string>
+
+    <string name="if_unexpected">&#xe606;</string>
+    <string name="if_unexpected1">&#xe692;</string>
+    <string name="if_empty">&#xe601;</string>
+    <string name="if_wifi_error">&#xe876;</string>
+    <string name="if_wifi_error1">&#xe501;</string>
+    <string name="if_back">&#xe607;</string>
+    <string name="if_error_tips">&#xe648;</string>
+    <string name="if_back_soild">&#xe680;</string>
+
+    <string name="if_notify">&#xe654;</string>
+    <string name="if_history">&#xe606;</string>
+    <string name="if_address">&#xe603;</string>
+    <string name="if_collection">&#xe604;</string>
+    <string name="if_search">&#xe987;</string>
+    <string name="if_clear">&#xe60b;</string>
+    <string name="if_delete">&#xe60a;</string>
+    <string name="if_empty1">&#xe637;</string>
+    <string name="if_empty2">&#xe6cf;</string>
+    <string name="if_empty3">&#xe60c;</string>
+    <string name="if_history2">&#xe6d0;</string>
+    <string name="if_notice_msg">&#xe609;</string>
+    <string name="if_notice_recommend">&#xe608;</string>
+    <string name="if_goods">&#xe6d1;</string>
+    <string name="if_share">&#xe60d;</string>
+    <string name="if_shop">&#xe895;</string>
+    <string name="if_like">&#xe60e;</string>
+    <string name="if_add">&#xe62b;</string>
+    <string name="if_location">&#xe61b;</string>
+    <string name="if_close">&#xe611;</string>
+    <string name="if_checked">&#xe612;</string>
+    <string name="if_checked2">&#xe62c;</string>
+    <string name="if_right_arrow">&#xe669;</string>
+    <string name="if_alipay">&#xe674;</string>
+    <string name="if_wxpay">&#xe62d;</string>
+</resources>

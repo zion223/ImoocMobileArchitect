@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:background="@color/color_white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <org.devio.hi.ui.tab.top.HiTabTopLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <org.devio.hi.ui.icfont.IconFontTextView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:text="@string/if_close"
+            android:textSize="@dimen/sp_24" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/color_eee" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

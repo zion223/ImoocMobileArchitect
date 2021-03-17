@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/color_white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <org.devio.hi.ui.icfont.IconFontTextView
+        android:id="@+id/empty_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:gravity="center"
+        android:text="#&#xe60c;"
+        android:textSize="60sp"/>
+
+    <TextView
+        android:id="@+id/empty_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:textColor="@color/color_565"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:text="@string/list_empty_desc"
+        tools:visibility="visible"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_9b9"
+            android:textSize="14sp"
+            tools:text="虽然什么也没有,要不下拉刷新看看"/>
+
+        <org.devio.hi.ui.icfont.IconFontTextView
+            android:id="@+id/empty_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:gravity="center"
+            android:text="@string/if_detail"
+            android:textColor="@color/color_298"
+            android:textSize="20sp"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/empty_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="刷新"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:backgroundTint="@color/color_dd2"
+        app:cornerRadius="8dp"
+        tools:visibility="visible"/>
+</LinearLayout>

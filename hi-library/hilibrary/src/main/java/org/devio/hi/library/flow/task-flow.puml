@@ -1,0 +1,91 @@
+@startuml
+class Task {
+ + val id: String//任务的唯一Id
+ + val isAsyncTask//是否是异步
+ + var delayMills: Long = 0//需要延迟多久再去执行它的时间
+
+ + var priority : Int//优先级，数值越低，优先级越低:
+ + var executeTime: Long = 0//执行的时间
+
+ + var state = TaskState.IDLE //状态
+
+ + val dependTasks: MutableSet<Task> = HashSet() //依赖者，它依赖了那些前置task
+ + val behindTasks: MutableList<Task> = ArrayList() //被依赖者,它被那些后置task依赖
+
+  + fun dependOn(taskName: String)添加前置任务
+  + fun dependOn(task: Task)//添加前置任务
+
+  + fun behind(task: Task)//添加后置任务
+  + fun behind(taskName: Task)//添加后置任务
+}
+
+class TaskState{
+       + const val IDLE = 0 //静止
+       + const val START = 1 //启动,可能需要等待调度，
+       + const val RUNNING = 2 //运行
+       + const val FINISHED = 3 //运行结束
+}
+
+class Project extends Task{
+     - var endTask: Task//有向无环树形图结束任务，标记位
+     - var startTask: Task//有向无环树形图开始任务，标记位
+
+     - fun Project(id: String)//不允许直接创建，需要通过内部Builder来构建添加，关联任务
+     + fun start(task:Task)//启动任务组
+}
+
+class Project.Builder{
+     # Project.Builder(iTaskCreator:ITaskCreator)
+
+     + fun add(taskName: String)//添加任务
+     + fun add(task: Task)  //添加任务
+
+     + fun dependOn(taskName: String)添加前置任务
+     + fun dependOn(task: Task)//添加前置任务
+}
+
+interface ITaskCreator{
+   + fun createTask(taskId: String): Task
+}
+
+class Project.TaskFactory {
+
+     - val mCacheTask = HashMap<String, Task>()
+
+     + fun getTask(taskId: String): Task //负责创建Task
+}
+
+class TaskRuntime{
+    -  val sBlockTaskIds: MutableSet<String> = mutableSetOf()
+    -  val sWaitingTasks: MutableList<Task> = mutableListOf()
+
+    + fun addBlockTask(taskId: String)//添加启动时需要阻塞执行的任务
+    - fun addWaitingTask(task: Task) //由于前置任务还没执行完成，暂时被存储到waitingTasks集合中
+
+    + fun executeTask(task: Task)//根据同步，异步，延迟三种策略调度任务.
+    - traversalDependenciesAndInit(task: Task)// 任务优先级排序,检查树形图任务是否存在环
+}
+
+class TaskFlowManager{
+   + addBlockTask(task:Task)
+   + fun start(task: Task)
+}
+
+TaskState--*Task
+Project.TaskFactory-->Project.Builder
+Project.Builder-->Project
+ITaskCreator--*Project.Builder
+
+Project--*TaskRuntime
+TaskRuntime--*TaskFlowManager
+
+note right of Task:启动阶段的每一个需要被初始化的任务\n可以是同步阻塞执行，异步执行，延迟执行
+note right of TaskState:任务运行时的状态
+note right of Project:任务组,管理一组Task的依赖关系，先后执行顺序\n不允许直接构建
+note top of ITaskCreator:面向接口,使用方使用它来创建具体的任务
+note left of Project.Builder:使用它来构建Project任务组对象
+note top of Project.TaskFactory:使用它配合着ITaskCreator来存储，创建Task任务
+note right of TaskRuntime:根据不同的策略，调度task的管理类
+note right of TaskFlowManager:对TaskRuntime的进一步包装，对外暴露的类
+
+@enduml

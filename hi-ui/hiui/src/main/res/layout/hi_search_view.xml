@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_40"
+    android:background="@drawable/shape_search_view"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="4dp"
+    android:paddingTop="2dp"
+    android:paddingRight="4dp"
+    android:paddingBottom="2dp">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:hint="@string/app_name"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/rotate_daisy" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="150dp"
+        android:gravity="center"
+        android:text="￥" />
+</RelativeLayout>

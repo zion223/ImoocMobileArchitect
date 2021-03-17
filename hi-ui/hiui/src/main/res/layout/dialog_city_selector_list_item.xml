@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:drawableRight="@drawable/ic_right_arrow"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_16"
+        android:paddingRight="@dimen/dp_16"
+        android:textColor="@color/color_city_selector_list_item"
+        android:textSize="@dimen/sp_16"
+        tools:text="浙江省" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/color_eee" />
+</LinearLayout>

@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toptabLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingLeft="@dimen/dp_10"
+    android:paddingTop="@dimen/dp_10"
+    android:paddingRight="@dimen/dp_10">
+    <!--  标题  -->
+    <TextView
+        android:id="@+id/top_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/hi_tabtop_normal_color"
+        android:textSize="@dimen/font_18" />
+    <!--  下划线 -->
+    <!--
+     android:background="@color/tab_underline_selected_top"
+    -->
+    <TextView
+        android:id="@+id/top_underline"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_3"
+        android:layout_below="@id/top_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/hi_tabtop_line_normal_color" />
+</RelativeLayout>
