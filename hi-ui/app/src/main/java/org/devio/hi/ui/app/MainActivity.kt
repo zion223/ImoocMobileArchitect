@@ -15,10 +15,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        var uri = Uri.parse("")
-        contentResolver.openFileDescriptor(uri, "r")
-
     }
 
     override fun onClick(v: View?) {
