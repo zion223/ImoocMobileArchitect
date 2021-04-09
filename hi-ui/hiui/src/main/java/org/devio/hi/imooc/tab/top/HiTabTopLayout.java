@@ -104,7 +104,7 @@ public class HiTabTopLayout extends HorizontalScrollView implements IHiTabLayout
         LinearLayout rootView = (LinearLayout) getChildAt(0);
         if (rootView == null) {
             rootView = new LinearLayout(getContext());
-            // 横向
+            // 横向布局
             rootView.setOrientation(LinearLayout.HORIZONTAL);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             addView(rootView, layoutParams);
@@ -170,7 +170,6 @@ public class HiTabTopLayout extends HorizontalScrollView implements IHiTabLayout
                 }
             }
         }
-        Log.e("xx", "需要滑动的距离 " + scrollWidth);
         return scrollWidth;
     }
 

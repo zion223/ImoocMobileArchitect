@@ -88,7 +88,7 @@ public class HiTabBottomLayout extends FrameLayout implements IHiTabLayout<HiTab
         this.infoList = infoList;
         // 移除之前添加的View
         // 移除时 从末尾开始移除
-        // 当前容器的第0个元素的中间的内容 因此不能移除
+        // 当前容器的第0个元素是中间的内容 因此不能移除
         for (int i = getChildCount() - 1; i > 0; i--) {
             removeViewAt(i);
         }
@@ -105,7 +105,7 @@ public class HiTabBottomLayout extends FrameLayout implements IHiTabLayout<HiTab
         fl.setTag(TAG_TAB_BOTTOM);
 
         int height = HiDisplayUtil.dp2px(tabBottomHeight, getResources());
-        // 屏幕宽度 / bottomInfo的个数 就是每个bottomLayout的宽度
+        // 屏幕宽度 / BottomInfo的个数 就是每个bottomLayout的宽度
         int width = HiDisplayUtil.getDisplayWidthInPx(getContext()) / infoList.size();
         for (int i = 0; i < infoList.size(); i++) {
             final HiTabBottomInfo<?> bottomInfo = infoList.get(i);

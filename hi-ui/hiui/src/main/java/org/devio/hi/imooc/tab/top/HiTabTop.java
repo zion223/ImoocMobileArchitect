@@ -18,7 +18,7 @@ import androidx.annotation.Nullable;
 import org.devio.hi.imooc.R;
 import org.devio.hi.imooc.tab.common.IHiTab;
 
-// 顶部单个
+// 顶部单个Tab
 public class HiTabTop extends RelativeLayout implements IHiTab<HiTabTopInfo<?>> {
 
     private HiTabTopInfo<?> tabInfo;
