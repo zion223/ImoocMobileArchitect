@@ -38,7 +38,6 @@ public class HiBannerDelegate implements IHiBanner, ViewPager.OnPageChangeListen
 
     @Override
     public void setBannerData(int layoutResId, @NonNull List<? extends HiBannerMo> models) {
-
         this.mHiBannerMos = models;
         init(layoutResId);
     }
@@ -50,6 +49,7 @@ public class HiBannerDelegate implements IHiBanner, ViewPager.OnPageChangeListen
         if (mHiIndicator == null) {
             mHiIndicator = new HiNumIndicator(context);
         }
+        // 初始化指示器
         mHiIndicator.onInflate(mHiBannerMos.size());
 
         mAdapter.setBannerData(mHiBannerMos);
@@ -60,7 +60,7 @@ public class HiBannerDelegate implements IHiBanner, ViewPager.OnPageChangeListen
 
         mHiViewPager = new HiViewPager(context);
         mHiViewPager.setIntervalTime(mIntervalTime);
-        mHiViewPager.setAudoPlay(mAutoPlay);
+        mHiViewPager.setAutoPlay(mAutoPlay);
         mHiViewPager.addOnPageChangeListener(this);
         // 设置ViewPager滚动速度
 
@@ -80,13 +80,19 @@ public class HiBannerDelegate implements IHiBanner, ViewPager.OnPageChangeListen
     }
 
     @Override
-    public void setHiIndicator(HiIndicator hiIndicator) {
+    public void setHiIndicator(HiIndicator<?> hiIndicator) {
         this.mHiIndicator = hiIndicator;
     }
 
     @Override
     public void setAutoPlay(boolean autoPlay) {
         this.mAutoPlay = autoPlay;
+        if(mAdapter != null){
+            mAdapter.setAutoPlay(autoPlay);
+        }
+        if(mHiViewPager != null){
+            mHiViewPager.setAutoPlay(autoPlay);
+        }
     }
 
     @Override
@@ -131,11 +137,15 @@ public class HiBannerDelegate implements IHiBanner, ViewPager.OnPageChangeListen
 
     @Override
     public void onPageSelected(int position) {
-        if (mHiBannerMos != null) {
-            if (mOnPageChangeListener != null) {
-                mOnPageChangeListener.onPageSelected(position);
-            }
-            mHiIndicator.onPointChange(position, mHiBannerMos.size());
+        if (mAdapter.getRealCount() == 0) {
+            return;
+        }
+        position = position % mAdapter.getRealCount();
+        if (mOnPageChangeListener != null) {
+            mOnPageChangeListener.onPageSelected(position);
+        }
+        if (mHiIndicator != null) {
+            mHiIndicator.onPointChange(position, mAdapter.getRealCount());
         }
     }
 

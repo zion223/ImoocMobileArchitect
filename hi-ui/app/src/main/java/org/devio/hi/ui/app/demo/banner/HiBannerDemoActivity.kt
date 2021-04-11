@@ -70,6 +70,10 @@ class HiBannerDemoActivity : AppCompatActivity() {
             titleView.text = mo.url
             Log.d("----position:", position.toString() + "url:" + mo.url)
         }
+        // 点击时触发
+        mHiBanner.setOnBannerClickListener{ _, _, position ->
+            Log.d("tag", "onClick$position");
+        }
 
     }
 }

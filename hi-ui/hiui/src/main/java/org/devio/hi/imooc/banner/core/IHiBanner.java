@@ -15,7 +15,7 @@ public interface IHiBanner {
 
     void setBannerData(@NonNull List<? extends HiBannerMo> models);
 
-    void setHiIndicator(HiIndicator hiIndicator);
+    void setHiIndicator(HiIndicator<?> hiIndicator);
 
     void setAutoPlay(boolean autoPlay);
 

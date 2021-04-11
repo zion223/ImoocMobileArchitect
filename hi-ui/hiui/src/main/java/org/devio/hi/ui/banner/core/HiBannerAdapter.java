@@ -143,7 +143,7 @@ public class HiBannerAdapter extends PagerAdapter {
 
     private View createView() {
         if (mLayoutResId == -1) {
-            throw new IllegalArgumentException("you must be set setLayoutResId first");
+            throw new IllegalArgumentException("you must be set LayoutResId first");
         }
 
         return LayoutInflater.from(mContext).inflate(mLayoutResId, null, false);

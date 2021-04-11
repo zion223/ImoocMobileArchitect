@@ -78,7 +78,7 @@ public class HiViewPager extends ViewPager {
         return nextPosition;
     }
 
-    public void setAudoPlay(boolean audoPlay) {
+    public void setAutoPlay(boolean audoPlay) {
         this.mAutoPlay = audoPlay;
         if(!audoPlay){
             mHandler.removeCallbacksAndMessages(null);

@@ -22,3 +22,20 @@
     - 指示器的高度定制
     - 将网络图片库与Banner组件解耦
     - 如何设置ViewPager的滚动速度
+
+
+ViewPager的滚动速度设置，通过反射修改ViewPager默认的mScroller对象
+
+```java
+    public void setScrollDuration(int duration) {
+        try {
+            Field scrollerField = ViewPager.class.getDeclaredField("mScroller");
+            scrollerField.setAccessible(true);
+            // 自定义的Scroller
+            scrollerField.set(this, new HiBannerScroller(getContext(), duration));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+```

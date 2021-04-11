@@ -30,7 +30,7 @@ public interface IHiBanner {
 
     void setScrollDuration(int duration);
 
-    interface OnBannerClickListener {
+    public interface OnBannerClickListener {
         void onBannerClick(@NonNull HiBannerAdapter.HiBannerViewHolder viewHolder, @NonNull HiBannerMo bannerMo, int position);
     }
 }

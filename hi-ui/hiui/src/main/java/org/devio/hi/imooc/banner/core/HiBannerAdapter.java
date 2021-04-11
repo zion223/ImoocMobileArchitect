@@ -58,7 +58,7 @@ public class HiBannerAdapter extends PagerAdapter {
         this.mLoop = loop;
     }
 
-    private int getRealCount() {
+    public int getRealCount() {
         return models == null ? 0 : models.size();
     }
 
