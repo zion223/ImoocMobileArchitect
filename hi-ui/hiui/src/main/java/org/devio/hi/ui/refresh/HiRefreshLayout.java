@@ -74,7 +74,7 @@ public class HiRefreshLayout extends FrameLayout implements HiRefresh {
     /**
      * 设置下拉刷新的视图
      *
-     * @param hiOverView
+     * @param hiOverView 刷新视图
      */
     @Override
     public void setRefreshOverView(HiOverView hiOverView) {
