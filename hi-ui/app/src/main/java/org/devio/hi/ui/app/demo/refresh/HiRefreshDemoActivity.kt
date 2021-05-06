@@ -24,10 +24,10 @@ class HiRefreshDemoActivity : AppCompatActivity() {
         val refreshLayout = findViewById<HiRefreshLayout>(R.id.refresh_layout)
         val xOverView = HiTextOverView(this)
         val lottieOverView =
-                HiLottieOverView(this)
+            HiLottieOverView(this)
         refreshLayout.setRefreshOverView(xOverView)
         refreshLayout.setRefreshListener(object :
-                HiRefresh.HiRefreshListener {
+            HiRefresh.HiRefreshListener {
             override fun onRefresh() {
                 Handler().postDelayed({ refreshLayout.refreshFinished() }, 1000)
             }
@@ -41,7 +41,15 @@ class HiRefreshDemoActivity : AppCompatActivity() {
     }
 
     var myDataset =
-            arrayOf("HiRefresh", "HiRefresh", "HiRefresh", "HiRefresh", "HiRefresh", "HiRefresh", "HiRefresh")
+        arrayOf(
+            "HiRefresh",
+            "HiRefresh",
+            "HiRefresh",
+            "HiRefresh",
+            "HiRefresh",
+            "HiRefresh",
+            "HiRefresh"
+        )
 
     private fun initRecycleView() {
         recyclerView = findViewById<View>(R.id.recycleview) as RecyclerView
@@ -53,15 +61,15 @@ class HiRefreshDemoActivity : AppCompatActivity() {
         recyclerView!!.setLayoutManager(layoutManager)
         // specify an adapter (see also next example)
         val mAdapter =
-                MyAdapter(
-                        myDataset
-                )
+            MyAdapter(
+                myDataset
+            )
         recyclerView!!.setAdapter(mAdapter)
     }
 
     class MyAdapter // Provide a suitable constructor (depends on the kind of dataset)
-    (private val mDataset: Array<String>) :
-            RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+        (private val mDataset: Array<String>) :
+        RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
         // Provide a reference to the views for each data item
 // Complex data items may need more than one view per item, and
@@ -77,20 +85,20 @@ class HiRefreshDemoActivity : AppCompatActivity() {
 
         // Create new views (invoked by the layout manager)
         override fun onCreateViewHolder(
-                parent: ViewGroup,
-                viewType: Int
+            parent: ViewGroup,
+            viewType: Int
         ): MyViewHolder { // create a new view
             val v = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_layout, parent, false)
+                .inflate(R.layout.item_layout, parent, false)
             return MyViewHolder(
-                    v
+                v
             )
         }
 
         // Replace the contents of a view (invoked by the layout manager)
         override fun onBindViewHolder(
-                holder: MyViewHolder,
-                position: Int
+            holder: MyViewHolder,
+            position: Int
         ) { // - get element from your dataset at this position
 // - replace the contents of the view with that element
             holder.textView.text = mDataset[position]
