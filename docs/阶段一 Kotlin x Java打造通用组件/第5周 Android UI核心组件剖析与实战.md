@@ -46,21 +46,76 @@
             homeIntent = info.second;
         }
         ...
+        // 交给ActivityStartController去处理
         mService.getActivityStartController().startHomeActivity(homeIntent, aInfo, myReason,
                 taskDisplayArea);
         return true;
     }
 ```
 
-
-
-
-
-
 ## 2.3 Launcher应用启动之进程启动2
 ## 2.4 Launcher应用启动之ActivityThread源码分析
+
+### ActivityThread结构图如下  
+<img src="image/ActivityThread结构图.png" style="zoom:80%">
+<img src="image/HomeActivity创建流程.png" style="zoom:80%">
+
+### Java设计模式之状态机模式  
+
+ > 状态模式的思想是将状态以及状态间的转换规则（状态机）和状态对应的特性行为封装成为一个对象，使用该对象装配环境类（context），以达到进行状态切换的时候能够自动变更context的某些行为（context的行为主要依靠状态的行为）
+
 ## 3.1 Activity之View树测绘流程分析-1
+
+<img src="image/Activity核心知识点.png" style="zoom:80%">
+
+### 如何在Activity中获取View的宽和高?  
+<br/> 
+
+### View的测绘流程的入口?
+
 ## 3.2 Activity之View树测绘流程分析-2
+### ViewRootImpl的相关功能
+
+<img src="image/ViewRootImpl功能.png" style="zoom:80%">
+
+### 在子线程中更新UI是否一定会抛出异常(Only the original thread that created a view hierarchy can touch its views.)?  
+<br/>
+
+### 在ViewRootImpl执行scheduleTraversals()方法时会使用到消息屏障  
+
+```java
+    void scheduleTraversals() {
+        if (!mTraversalScheduled) {
+            // 过滤
+            mTraversalScheduled = true;
+            // 插入同步消息屏障  让异步消息先执行
+            mTraversalBarrier = mHandler.getLooper().getQueue().postSyncBarrier();
+            // 异步执行mTraversalRunnable
+            mChoreographer.postCallback(
+                    Choreographer.CALLBACK_TRAVERSAL, mTraversalRunnable, null);
+            if (!mUnbufferedInputDispatch) {
+                scheduleConsumeBatchedInput();
+            }
+            notifyRendererOfFramePending();
+            pokeDrawLockIfNeeded();
+        }
+    }
+
+    void unscheduleTraversals() {
+        if (mTraversalScheduled) {
+            mTraversalScheduled = false;
+            // 根据序号移除消息屏障
+            mHandler.getLooper().getQueue().removeSyncBarrier(mTraversalBarrier);
+            mChoreographer.removeCallbacks(
+                    Choreographer.CALLBACK_TRAVERSAL, mTraversalRunnable, null);
+        }
+    }
+```
+<img src="image/Handler消息屏障.png" style="zoom:80%">
+
+<img src="image/View三大流程.png" style="zoom:80%">
+
+
 ## 3.3 Activity之页面刷新机制概述
 ## 3.4 Activity之手势分发来源
 ## 3.5 Activity之任务栈管理
