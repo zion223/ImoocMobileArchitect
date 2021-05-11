@@ -117,7 +117,20 @@
 
 
 ## 3.3 Activity之页面刷新机制概述
+<br/>
+
+### [Chroeographer源码分析](https://www.jianshu.com/p/996bca12eb1d/)
+
+### **View的动画也是通过Chroeographer来协调进行的**
+
+<img src="image/Vsync消息队列.png" style="zoom:80%">
+
+
+
 ## 3.4 Activity之手势分发来源
+
+<img src="image/手势分发流程图.png" style="zoom:80%">
+
 ## 3.5 Activity之任务栈管理
 ## 4.1 Fragment之FragmentTraction事务执行流程分析
 ## 4.2 Fragment之页面重叠与新版懒加载-1
