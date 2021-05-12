@@ -136,8 +136,15 @@
 ## 4.2 Fragment之页面重叠与新版懒加载-1
 ## 4.3 Fragment之页面重叠与新版懒加载-2
 ## 5.1 RecyclerView家族图谱分析
+
+<img src="image/RecyclerView家族图谱.png" style="zoom:80%">
+
 ## 5.2 RecyclerView源码解析
 ## 5.3 RecyclerView优化之回收复用机制探秘
+
+<img src="image/Recycler回收池.png" style="zoom:80%">
+<img src="image/Recycler复用.png" style="zoom:80%">  
+
 ## 6.1 高易用HiDataItem组件封装之需求分析
 ## 6.2 高易用HiDataItem组件封装-1
 
