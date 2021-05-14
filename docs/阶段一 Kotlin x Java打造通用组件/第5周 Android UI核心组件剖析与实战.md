@@ -145,6 +145,21 @@
 <img src="image/Recycler回收池.png" style="zoom:80%">
 <img src="image/Recycler复用.png" style="zoom:80%">  
 
+### **RecyclerView四级缓存**  
+
+1. 屏幕内缓存   
+    mChangedScrap： 表示数据已经改变的ViewHolder列表，存储 notifXXX 方法时需要改变的 ViewHolder,匹配机制按照position和id进行匹配。  
+    mAttachedScrap： 表示未与RecyclerView分离的ViewHolder列表，未与RecyclerView分离的ViewHolder列表，如果仍依赖于 RecyclerView （比如已经滑动出可视范围，但还没有被移除掉），但已经被标记移除的 ItemView 集合会被添加到 mAttachedScrap 中。
+
+2. 屏幕外缓存  
+    mCachedViews：当列表滑动出了屏幕时，ViewHolder会被缓存在 mCachedViews，其大小由mViewCacheMax决定，默认DEFAULT_CACHE_SIZE为2，可通过Recyclerview.setItemViewCacheSize()动态设置。
+3. 自定义缓存 ViewCacheExtension
+4. 缓存池 RecycledViewPool
+
+
+
+
+
 ## 6.1 高易用HiDataItem组件封装之需求分析
 ## 6.2 高易用HiDataItem组件封装-1
 
