@@ -133,6 +133,12 @@
 
 ## 3.5 Activity之任务栈管理
 ## 4.1 Fragment之FragmentTraction事务执行流程分析
+
+<img src="image/Fragment知识点.png" style="zoom:80%">
+
+
+<img src="image/FragmentTransaction提交方式.png" style="zoom:80%">
+
 ## 4.2 Fragment之页面重叠与新版懒加载-1
 ## 4.3 Fragment之页面重叠与新版懒加载-2
 ## 5.1 RecyclerView家族图谱分析
