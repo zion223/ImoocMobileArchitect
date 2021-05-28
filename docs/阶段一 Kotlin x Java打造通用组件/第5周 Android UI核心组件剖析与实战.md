@@ -58,11 +58,14 @@
 
 ### ActivityThread结构图如下  
 <img src="image/ActivityThread结构图.png" style="zoom:80%">
-<img src="image/HomeActivity创建流程.png" style="zoom:80%">
+<img src="image/HomeActivity创建流程.png" style="zoom:90%">
 
 ### Java设计模式之状态机模式  
+<br> 
 
  > 状态模式的思想是将状态以及状态间的转换规则（状态机）和状态对应的特性行为封装成为一个对象，使用该对象装配环境类（context），以达到进行状态切换的时候能够自动变更context的某些行为（context的行为主要依靠状态的行为）
+
+<br> 
 
 ## 3.1 Activity之View树测绘流程分析-1
 
@@ -140,6 +143,11 @@
 <img src="image/FragmentTransaction提交方式.png" style="zoom:80%">
 
 ## 4.2 Fragment之页面重叠与新版懒加载-1
+
+
+
+
+
 ## 4.3 Fragment之页面重叠与新版懒加载-2
 ## 5.1 RecyclerView家族图谱分析
 
