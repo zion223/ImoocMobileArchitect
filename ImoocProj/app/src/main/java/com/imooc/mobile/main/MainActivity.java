@@ -23,7 +23,10 @@ public class MainActivity extends HiBaseActivity implements MainActivityLogic.Ac
         activityLogic = new MainActivityLogic(this, savedInstanceState);
     }
 
-    // Activity被回收时回调用此方法保留当前应用的状态
+    /**
+     * Activity被回收时回调用此方法保留当前应用的状态
+     * @param outState outState
+     */
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);

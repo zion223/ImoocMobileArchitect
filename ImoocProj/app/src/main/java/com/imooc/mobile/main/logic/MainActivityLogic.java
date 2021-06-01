@@ -33,7 +33,8 @@ public class MainActivityLogic {
     private List<HiTabBottomInfo<?>> infoList;
     private ActivityProvider activityProvider;
     private final static String SAVED_CURRENT_ID = "SAVED_CURRENT_ID";
-    private int currentItemIndex; // 当前停留的Fragment
+    // 当前停留的Fragment index
+    private int currentItemIndex;
 
     public MainActivityLogic(ActivityProvider activityProvider, @Nullable Bundle savedInstanceState) {
         this.activityProvider = activityProvider;
