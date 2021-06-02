@@ -144,11 +144,17 @@
 
 ## 4.2 Fragment之页面重叠与新版懒加载-1
 
+### *Fragment页面重叠解决方案*  
 
+<img src="image/Fragment页面重叠.png" style="zoom:80%">
 
-
+### *新版Fragment懒加载实现方式*  
+### ViewPager配合FragmentStatePageAdapter && ViewPager2配合FragmentPagerAdpter
 
 ## 4.3 Fragment之页面重叠与新版懒加载-2
+
+<img src="image/单Activity开发模式探讨.png" style="zoom:70%">
+
 ## 5.1 RecyclerView家族图谱分析
 
 <img src="image/RecyclerView家族图谱.png" style="zoom:80%">

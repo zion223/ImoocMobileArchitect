@@ -18,21 +18,19 @@ import com.imooc.mobile.main.fragment.HomePageFragment;
 import com.imooc.mobile.main.fragment.ProfileFragment;
 import com.imooc.mobile.main.fragment.RecommendFragment;
 
-
 import org.devio.hi.imooc.tab.bottom.HiTabBottomInfo;
 import org.devio.hi.imooc.tab.bottom.HiTabBottomLayout;
-import org.devio.hi.imooc.tab.common.IHiTabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivityLogic {
 
+    private final static String SAVED_CURRENT_ID = "SAVED_CURRENT_ID";
     private HiFragmentTabView fragmentTabView;
     private HiTabBottomLayout hiTabBottomLayout;
     private List<HiTabBottomInfo<?>> infoList;
-    private ActivityProvider activityProvider;
-    private final static String SAVED_CURRENT_ID = "SAVED_CURRENT_ID";
+    private final ActivityProvider activityProvider;
     // 当前停留的Fragment index
     private int currentItemIndex;
 
@@ -113,7 +111,7 @@ public class MainActivityLogic {
         hiTabBottomLayout.defaultSelected(infoList.get(currentItemIndex));
     }
 
-    private void initFragmentTabView(){
+    private void initFragmentTabView() {
         HiTabViewAdapter tabViewAdapter = new HiTabViewAdapter(activityProvider.getSupportFragmentManager(), infoList);
         fragmentTabView = activityProvider.findViewById(R.id.fragment_tab_view);
         fragmentTabView.setAdapter(tabViewAdapter);
