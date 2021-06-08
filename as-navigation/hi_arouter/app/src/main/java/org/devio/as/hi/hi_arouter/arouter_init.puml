@@ -1,0 +1,34 @@
+@startuml
+class _Arouter{
+   void init()
+}
+
+class LogisticsCenter{
+    void init()
+}
+
+class Warehouse{
+  //路由组集合,key为组名，value为路由组的Class
+  Map<String, Class<? extends IRouteGroup>> groupsIndex
+  //路由组按需加载完成后，存放到路由集合中
+  Map<String, RouteMeta> routes
+
+
+  //每个服务的原始信息加载完成后存放到这里
+  Map<String, RouteMeta> providersIndex
+  //服务集合,key为服务的Class，value为服务的实例,需要时才会创建实例
+  Map<Class, IProvider> providers
+
+  // Cache interceptor
+  Map<Integer, Class<? extends IInterceptor>> interceptorsIndex
+  List<IInterceptor> interceptors
+}
+
+note left of _Arouter:开始初始化
+note left of LogisticsCenter:初始化中心\n1.扫描所有dex文件com.alibaba.android.arouter.routes目录\n2.加载所有模块下管理路由组Root文件\n3.加载所有模块下管理服务的providers文件\n4.加载所有模块下管理拦截器的interceptors文件
+note left of Warehouse:路由，服务，拦截器数据仓储
+
+
+_Arouter-->LogisticsCenter
+LogisticsCenter-->Warehouse
+@enduml

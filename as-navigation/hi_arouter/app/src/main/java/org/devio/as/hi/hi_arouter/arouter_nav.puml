@@ -1,0 +1,42 @@
+@startuml
+
+class _Arouter{
+  //根据传递的页面(服务)path 构建Postcard路由对象
+   Postcard build(String path)
+}
+
+interface PathReplaceService{
+   String forString(String path);
+   Uri forUri(Uri uri);
+}
+
+class Postcard{
+    Postcard withString(String key, String value)
+    Postcard withBundle(String key, Bundle value)
+    Postcard withSerializable(String key, Serializable value)
+    Postcard withParcelable(String key,Parcelable value)
+    Postcard withObject(String key,Object value)
+
+    object navigation(Context context, NavigationCallback callback)
+}
+
+interface PretreatmentService extends IProvider{
+     boolean onPretreatment(Context context, Postcard postcard);
+}
+
+class LogisticsCenter{
+     void completion(Postcard postcard)
+}
+
+interface DegradeService extends IProvider{
+    void onLost(Context context, Postcard postcard);
+}
+
+interface InterceptorService extends IProvider{
+   void doInterceptions(Postcard postcard, InterceptorCallback callback)
+}
+
+
+_Arouter->Postcard:寻找PathReplaceService 服务，提供修改路由Url机会
+Postcard-> _Arouter
+@enduml

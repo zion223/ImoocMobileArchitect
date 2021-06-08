@@ -1,0 +1,26 @@
+{
+  "selectTab": 0,
+  "tabs": [
+    {
+      "size": 24,
+      "enable": true,
+      "index": 0,
+      "pageUrl": "main/tabs/home",
+      "title": "Home"
+    },
+    {
+      "size": 24,
+      "enable": true,
+      "index": 1,
+      "pageUrl": "main/tabs/dashboard",
+      "title": "Dashboard"
+    },
+    {
+      "size": 40,
+      "enable": false,
+      "index": 2,
+      "pageUrl": "main/tabs/notification",
+      "title": "Notification"
+    }
+  ]
+}

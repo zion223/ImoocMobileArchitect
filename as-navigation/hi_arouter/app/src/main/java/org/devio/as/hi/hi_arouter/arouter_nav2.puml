@@ -1,0 +1,29 @@
+@startuml
+autonumber
+begin ->_Arouter:Arouter#build(String path)
+activate _Arouter
+_Arouter ----> _Arouter:_Arouter#build(String path)\n<font color=blue><b>寻找PathReplaceService 服务，提供修改路由Url机会
+_Arouter->Postcard: 根据路由Url创建new Postcard(String path)对象
+deactivate _Arouter
+activate Postcard
+|||
+Postcard -> _Arouter:Postcard withSerializable(String key, Serializable value)\n Postcard withParcelable(String key,Parcelable value)\nPostcard withObject(String key,Object value)\n\n<font color=black size=12><b>object navigation(Context context,NavigationCallback callback)\n
+deactivate Postcard
+activate _Arouter
+|||
+_Arouter-->_Arouter:_Arouter#navigation()\n<font color=blue><b>寻找PretreatmentService路由预处理服务,提供拦截自行处理本次路由的机会
+|||
+_Arouter<-->LogisticsCenter:LogisticsCenter#completion(Postcard postcard)\n根据路由Url寻找目标页(目标服务)的RouteMeta信息，填充Postcard
+activate LogisticsCenter
+|||
+_Arouter-->DegradeService:<font color=blue><b>如果上一步发生错误,则寻找全局降级服务,提供路由出错策略自定义的机会
+deactivate LogisticsCenter
+activate DegradeService
+|||
+_Arouter-->interceptorService:<font color=blue><b>执行拦截器,提供最后的干预机会
+deactivate DegradeService
+activate interceptorService
+|||
+_Arouter->end:_Arouter#_navigation()\n根据填充后的Postcard#routeType,分门别类的启动页面(创建服务实例并返回)
+deactivate interceptorService
+@enduml

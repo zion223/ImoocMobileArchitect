@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+//ext {
+//    bintrayName = 'arouter-api'
+//    artifact = bintrayName
+//    libraryName = 'ARouter sdk'
+//    libraryDescription = 'A router for android'
+//    libraryVersion = arouter_main_version
+//}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled false
+        }
+
+        lintOptions { abortOnError false }
+    }
+}
+
+dependencies {
+    annotationProcessor project(':arouter-compiler')
+    api project(':arouter-annotation')
+    //api 'com.alibaba:arouter-annotation:1.0.6'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+}

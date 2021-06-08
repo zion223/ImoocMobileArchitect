@@ -1,0 +1,115 @@
+@startuml
+
+class NavHostFragment {
+
+ NavController NavController
+
+ app:navGraph
+}
+class NavController{
+  NavGraph mGraph//mobile_navigation.xml资源文件解析后生成的对象
+  NavigatorProvider mNavigatorProvider//导航器navigator管理者
+  Deque<NavBackStackEntry> mBackStack//回退栈管理
+  NavInflater mInflater//mobile_navigation.xml资源解析器
+
+  setGraph(int graphResId)
+  handleDeepLink(Intent intent)
+
+  navigate(int resId)
+  navigate(Uri deepLink)
+  navigate(int resId, Bundle args,NavOptions navOptions)
+
+  navigateUp()
+  popBackStack( int destinationId, boolean inclusive)
+
+}
+
+
+class NavigatorProvider{
+  HashMap<String, Navigator> mNavigators
+  addNavigator( String name, Navigator navigator)
+  Navigator getNavigator(String name)
+}
+
+abstract class NavDestination{
+
+    @interface ClassType{Class<?> value}
+    String mNavigatorName;
+    int id
+
+    onInflate(Context context AttributeSet attrs)
+
+}
+
+class NavGraph extends NavDestination{
+  SparseArrayCompat<NavDestination> mNodes
+  addDestination(NavDestination node)
+  NavDestination findNode(int resId)
+  void setStartDestination(int resId)
+}
+
+
+class FragmentDestination extends NavDestination{
+   setClassName(String className)
+}
+class DialogDestination extends NavDestination{
+ setClassName(String className)
+}
+class ActivityDestination extends NavDestination{
+     setData(@Nullable Uri data)
+     setIntent(Intent intent)
+     setTargetPackage(String packageName)
+     setComponentName(ComponentName name)
+     setAction(@Nullable String action)
+}
+
+class ActivityNavigator extends Navigator{
+    class ActivityDestination extends NavDestination{}
+    ActivityDestination createDestination()
+    navigate(Destination destination)
+}
+class FragmentNavigator extends Navigator  {
+    class FragmentDestination extends NavDestination{}
+    FragmentDestination createDestination()
+    navigate(Destination destination)
+}
+class DialogFragmentNavigator extends Navigator{
+    class DialogDestination extends NavDestination{}
+    DialogDestination createDestination()
+    navigate(Destination destination)
+}
+class NavGraphNavigator extends Navigator{
+
+    NavGraph createDestination()
+    navigate(Destination destination)
+}
+
+abstract class Navigator<D extends NavDestination>{
+ @interface Name{String value}
+ navigate(D destination,Bundle args);
+ D createDestination()
+}
+
+NavHostFragment<---NavController
+NavController<--NavigatorProvider
+NavController<--NavGraph
+NavGraph<--NavDestination
+NavigatorProvider<--Navigator
+
+
+note left of NavHostFragment:宿主\n所有Fragment都将嵌套在内
+note left of NavController:导航控制器\n提供路由和回退能力
+note left of NavigatorProvider:各种navigator的管理者\n实际就是个HashMap
+note right of NavGraph:导航视图\nmobile_navigation.xml解析生成的对象，记录了所有页面节点
+note left of Navigator:导航器\n子类必须复写createDest和navigate方法
+note right of NavDestination:路由节点\n代表一个个的页面
+note bottom of NavGraphNavigator:专门用来打开startDestination对应的页面
+note bottom of ActivityNavigator:为Activity类型的页面提供导航服务
+note bottom of FragmentNavigator:为Fragment类型的页面提供导航服务
+note bottom of DialogFragmentNavigator:为DialogFragment类型的页面提供导航服务
+note bottom of DialogDestination:DialogFragment节点类型
+note bottom of ActivityDestination:Activity节点类型
+note bottom of FragmentDestination:Fragment节点类型
+
+
+@enduml
