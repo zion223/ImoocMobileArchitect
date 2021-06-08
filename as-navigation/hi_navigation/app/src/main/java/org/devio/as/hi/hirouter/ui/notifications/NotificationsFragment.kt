@@ -15,9 +15,14 @@ import org.devio.`as`.hi.nav_annotation.Destination
 @Destination(pageUrl = "main/tabs/notification")
 class NotificationsFragment : Fragment() {
 
-    private val TAG: String = "NotificationsFragment"
+    private val TAG: String = NotificationsViewModel::class.java.simpleName
 
     private lateinit var notificationsViewModel: NotificationsViewModel
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Log.e(TAG, "NotificationsFragment,onViewCreated")
+        super.onViewCreated(view, savedInstanceState)
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
