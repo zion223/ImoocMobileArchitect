@@ -39,6 +39,9 @@ captures/
 # IntelliJ
 *.iml
 .idea/workspace.xml
+.idea/compiler.xml
+.idea/jarRespositories.xml
+.idea/misc.xml
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/assetWizardSettings.xml
@@ -86,3 +89,5 @@ lint/tmp/
 
 # asproj
 asproj
+
+.idea
