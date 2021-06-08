@@ -15,12 +15,12 @@ import org.devio.`as`.hi.nav_annotation.Destination
 @Destination(pageUrl = "main/tabs/notification")
 class NotificationsFragment : Fragment() {
 
-    private val TAG: String = NotificationsViewModel::class.java.simpleName
+    private val TAG: String = NotificationsFragment::class.java.simpleName
 
     private lateinit var notificationsViewModel: NotificationsViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Log.e(TAG, "NotificationsFragment,onViewCreated")
+        Log.e(TAG, "onViewCreated")
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -37,42 +37,42 @@ class NotificationsFragment : Fragment() {
             textView.text = it
         })
 
-        Log.e(TAG, "NotificationsFragment,onCreateView")
+        Log.e(TAG, "onCreateView")
         return root
     }
 
     override fun onResume() {
         super.onResume()
-        Log.e(TAG, "NotificationsFragment,onResume")
+        Log.e(TAG, "onResume")
     }
 
     override fun onDestroy() {
-        Log.e(TAG, "NotificationsFragment,onDestroy")
+        Log.e(TAG, "onDestroy")
         super.onDestroy()
     }
 
     override fun onStart() {
-        Log.e(TAG, "NotificationsFragment,onStart")
+        Log.e(TAG, "onStart")
         super.onStart()
     }
 
     override fun onPause() {
-        Log.e(TAG, "NotificationsFragment,onPause")
+        Log.e(TAG, "onPause")
         super.onPause()
     }
 
     override fun onStop() {
-        Log.e(TAG, "NotificationsFragment,onStop")
+        Log.e(TAG, "onStop")
         super.onStop()
     }
 
     override fun onDestroyView() {
-        Log.e(TAG, "NotificationsFragment,onDestroyView")
+        Log.e(TAG, "onDestroyView")
         super.onDestroyView()
     }
 
     override fun onDetach() {
-        Log.e(TAG, "NotificationsFragment,onDetach")
+        Log.e(TAG, "onDetach")
         super.onDetach()
     }
 }

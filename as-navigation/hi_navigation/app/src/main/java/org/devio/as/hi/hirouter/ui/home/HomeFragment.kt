@@ -10,20 +10,23 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import org.devio.`as`.hi.hirouter.R
+import org.devio.`as`.hi.hirouter.ui.dashboard.DashboardFragment
 import org.devio.`as`.hi.nav_annotation.Destination
 
 @Destination(pageUrl = "main/tabs/home", asStarter = true)
 class HomeFragment : Fragment() {
 
+    private val TAG: String = HomeFragment::class.java.simpleName
+
     private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
+                ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
@@ -31,12 +34,42 @@ class HomeFragment : Fragment() {
         })
 
 
-        Log.e("fragment","HomeFragment,onCreateView")
+        Log.e("fragment", "HomeFragment,onCreateView")
         return root
     }
 
     override fun onResume() {
         super.onResume()
-        Log.e("fragment","HomeFragment,onResume")
+        Log.e("fragment", "HomeFragment,onResume")
+    }
+
+    override fun onDestroy() {
+        Log.e(TAG, "onDestroy")
+        super.onDestroy()
+    }
+
+    override fun onStart() {
+        Log.e(TAG, "onStart")
+        super.onStart()
+    }
+
+    override fun onPause() {
+        Log.e(TAG, "onPause")
+        super.onPause()
+    }
+
+    override fun onStop() {
+        Log.e(TAG, "onStop")
+        super.onStop()
+    }
+
+    override fun onDestroyView() {
+        Log.e(TAG, "onDestroyView")
+        super.onDestroyView()
+    }
+
+    override fun onDetach() {
+        Log.e(TAG, "onDetach")
+        super.onDetach()
     }
 }
