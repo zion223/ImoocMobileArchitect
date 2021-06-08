@@ -11,9 +11,14 @@
 
 <img src="image/ARouter和Navigation对比.png" style="zoom:100%">
 
-<img src="image/路由库异同点.png" style="zoom:100%">
+<img src="image/路由库异同点.png" style="zoom:100%">  
 
-<img src="image/路由库异同点2.png" style="zoom:100%">
+<img src="image/路由库异同点2.png" style="zoom:100%">  
 
-<img src="image/技术选型.png" style="zoom:100%">
+<img src="image/技术选型.png" style="zoom:100%">  
+
+<img src="image/navigation.png" style="zoom:100%">
+
+
+
 
