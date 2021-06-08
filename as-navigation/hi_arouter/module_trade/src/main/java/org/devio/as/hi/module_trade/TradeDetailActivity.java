@@ -2,6 +2,7 @@ package org.devio.as.hi.module_trade;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,9 +23,11 @@ public class TradeDetailActivity extends AppCompatActivity {
     public String shopId;
 
 
+    @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
+        Log.d("TradeDetailActivity", "onCreate:" + "saleId: " + saleId + " shopId: " + shopId);
         ARouter.getInstance().inject(this);
     }
 }
