@@ -64,7 +64,7 @@ public class NavProcessor extends AbstractProcessor {
             try {
                 FileObject resource = filer.createResource(StandardLocation.CLASS_OUTPUT, "", OUTPUT_FILE_NAME);
                 // /app/build/intermediates/javac/debug/classes/目录下
-                //app/main/assets/
+                // app/main/assets/
                 String resourcePath = resource.toUri().getPath();
 
                 String appPath = resourcePath.substring(0, resourcePath.indexOf("app") + 4);
@@ -109,12 +109,12 @@ public class NavProcessor extends AbstractProcessor {
             boolean asStarter = annotation.asStarter();
             int id = Math.abs(clazName.hashCode());
 
-            //Activity,Dialog,Fragment
+            //Activity, Dialog, Fragment
             String destType = getDestinationType(typeElement);
-
 
             if (destMap.containsKey(pageUrl)) {
                 messager.printMessage(Diagnostic.Kind.ERROR, "不同的页面不允许使用相同的pageUrl:" + pageUrl);
+                throw new IllegalArgumentException("不同的页面不允许使用相同的pageUrl: " + pageUrl);
             } else {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("clazName", clazName);
