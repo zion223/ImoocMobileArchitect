@@ -190,9 +190,11 @@ public class HiFragmentNavigator extends Navigator<HiFragmentNavigator.Destinati
             frag = instantiateFragment(mContext, mFragmentManager,
                     className, args);
         }
+        // 设置Arguments
         frag.setArguments(args);
         final FragmentTransaction ft = mFragmentManager.beginTransaction();
 
+        // 动画相关
         int enterAnim = navOptions != null ? navOptions.getEnterAnim() : -1;
         int exitAnim = navOptions != null ? navOptions.getExitAnim() : -1;
         int popEnterAnim = navOptions != null ? navOptions.getPopEnterAnim() : -1;
@@ -207,18 +209,20 @@ public class HiFragmentNavigator extends Navigator<HiFragmentNavigator.Destinati
 
         List<Fragment> fragments = mFragmentManager.getFragments();
         for (Fragment fragment : fragments) {
+            // 隐藏Fragment
             ft.hide(fragment);
         }
 
         if (!frag.isAdded()) {
             ft.add(mContainerId, frag, tag);
         }
-
+        // 展示Fragment
         ft.show(frag);
         //ft.replace(mContainerId, frag);
         ft.setPrimaryNavigationFragment(frag);
 
         final @IdRes int destId = destination.getId();
+        // 是否为第一次导航
         final boolean initialNavigation = mBackStack.isEmpty();
         // TODO Build first class singleTop behavior for fragments
         final boolean isSingleTopReplacement = navOptions != null && !initialNavigation
@@ -229,6 +233,7 @@ public class HiFragmentNavigator extends Navigator<HiFragmentNavigator.Destinati
         if (initialNavigation) {
             isAdded = true;
         } else if (isSingleTopReplacement) {
+            // Single Top 模式 意味着在回退栈中稚嫩有一个实例
             // Single Top means we only want one instance on the back stack
             if (mBackStack.size() > 1) {
                 // If the Fragment to be replaced is on the FragmentManager's

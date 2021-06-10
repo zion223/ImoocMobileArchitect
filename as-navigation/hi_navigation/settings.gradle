@@ -1,2 +1,2 @@
 include ':app', ':nav-annotation', ':nav-compiler'
-rootProject.name='hinavigation'
+rootProject.name='Hi_Navigation'
