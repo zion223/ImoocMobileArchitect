@@ -1,4 +1,4 @@
-package org.devio.`as`.hi.hirouter.ui.dashboard
+package org.devio.`as`.hi.hinavigation.ui.dashboard
 
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import org.devio.`as`.hi.hirouter.R
+import org.devio.`as`.hi.hinavigation.R
 import org.devio.`as`.hi.nav_annotation.Destination
 
 @Destination(pageUrl = "main/tabs/dashboard", asStarter = false)

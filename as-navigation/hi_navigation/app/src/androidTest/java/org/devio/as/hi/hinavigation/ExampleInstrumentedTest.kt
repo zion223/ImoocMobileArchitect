@@ -1,4 +1,4 @@
-package org.devio.`as`.hi.hirouter
+package org.devio.`as`.hi.hinavigation
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

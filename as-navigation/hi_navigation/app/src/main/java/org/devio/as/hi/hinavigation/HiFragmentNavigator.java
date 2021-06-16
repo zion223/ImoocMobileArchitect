@@ -1,4 +1,4 @@
-package org.devio.as.hi.hirouter;
+package org.devio.as.hi.hinavigation;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -38,32 +38,13 @@ import java.util.Map;
  */
 
 
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.os.Bundle;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
-
-import androidx.annotation.CallSuper;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
-import androidx.navigation.NavOptions;
-import androidx.navigation.Navigator;
-import androidx.navigation.NavigatorProvider;
 import androidx.navigation.fragment.FragmentNavigator;
-
-import java.util.ArrayDeque;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 /**
  * Navigator that navigates through {@link FragmentTransaction fragment transactions}. Every

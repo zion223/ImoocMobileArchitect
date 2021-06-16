@@ -1,4 +1,4 @@
-package org.devio.`as`.hi.hirouter.ui.dashboard
+package org.devio.`as`.hi.hinavigation.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

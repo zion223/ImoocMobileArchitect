@@ -1,1 +1,23 @@
-{"main/tabs/dashboard":{"asStarter":false,"clazName":"org.devio.as.hi.hirouter.ui.dashboard.DashboardFragment","pageUrl":"main/tabs/dashboard","id":1512347430,"destType":"fragment"},"main/tabs/home":{"asStarter":true,"clazName":"org.devio.as.hi.hirouter.ui.home.HomeFragment","pageUrl":"main/tabs/home","id":466880710,"destType":"fragment"},"main/tabs/notification":{"asStarter":false,"clazName":"org.devio.as.hi.hirouter.ui.notifications.NotificationsFragment","pageUrl":"main/tabs/notification","id":1399280078,"destType":"fragment"}}
+{
+  "main/tabs/dashboard": {
+    "asStarter": false,
+    "clazName": "org.devio.as.hi.hinavigation.ui.dashboard.DashboardFragment",
+    "pageUrl": "main/tabs/dashboard",
+    "id": 790164869,
+    "destType": "fragment"
+  },
+  "main/tabs/home": {
+    "asStarter": true,
+    "clazName": "org.devio.as.hi.hinavigation.ui.home.HomeFragment",
+    "pageUrl": "main/tabs/home",
+    "id": 303145167,
+    "destType": "fragment"
+  },
+  "main/tabs/notification": {
+    "asStarter": false,
+    "clazName": "org.devio.as.hi.hinavigation.ui.notifications.NotificationsFragment",
+    "pageUrl": "main/tabs/notification",
+    "id": 524312541,
+    "destType": "fragment"
+  }
+}

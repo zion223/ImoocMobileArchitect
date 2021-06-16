@@ -1,4 +1,4 @@
-package org.devio.as.hi.hirouter;
+package org.devio.as.hi.hinavigation;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -19,8 +19,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import org.devio.as.hi.hirouter.model.BottomBar;
-import org.devio.as.hi.hirouter.model.Destination;
+import org.devio.as.hi.hinavigation.model.BottomBar;
+import org.devio.as.hi.hinavigation.model.Destination;
 
 import java.io.BufferedReader;
 import java.io.IOException;

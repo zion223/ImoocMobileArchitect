@@ -1,4 +1,4 @@
-package org.devio.as.hi.hirouter.model;
+package org.devio.as.hi.hinavigation.model;
 
 public class Destination {
     /**

@@ -1,4 +1,4 @@
-package org.devio.`as`.hi.hirouter
+package org.devio.`as`.hi.hinavigation
 
 import org.junit.Test
 
