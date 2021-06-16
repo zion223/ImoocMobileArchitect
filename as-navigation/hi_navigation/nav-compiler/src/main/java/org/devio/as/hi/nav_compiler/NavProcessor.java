@@ -58,8 +58,7 @@ public class NavProcessor extends AbstractProcessor {
         //Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(ActivityDestination.class);
         if (!elements.isEmpty()) {
             HashMap<String, JSONObject> destMap = new HashMap<>();
-            handleDestination(elements, Destination.class, destMap);
-
+            handleDestination(elements, destMap);
 
             try {
                 FileObject resource = filer.createResource(StandardLocation.CLASS_OUTPUT, "", OUTPUT_FILE_NAME);
@@ -97,14 +96,14 @@ public class NavProcessor extends AbstractProcessor {
         return false;
     }
 
-    private void handleDestination(Set<? extends Element> elements, Class<Destination> destinationClass, HashMap<String, JSONObject> destMap) {
+    private void handleDestination(Set<? extends Element> elements, HashMap<String, JSONObject> destMap) {
         for (Element element : elements) {
             TypeElement typeElement = (TypeElement) element;
 
             //全类名
             String clazName = typeElement.getQualifiedName().toString();
-
-            Destination annotation = typeElement.getAnnotation(destinationClass);
+            // 获得注解Destination的类
+            Destination annotation = typeElement.getAnnotation(Destination.class);
             String pageUrl = annotation.pageUrl();
             boolean asStarter = annotation.asStarter();
             int id = Math.abs(clazName.hashCode());
