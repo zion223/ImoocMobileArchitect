@@ -233,7 +233,7 @@ public class HiFragmentNavigator extends Navigator<HiFragmentNavigator.Destinati
         if (initialNavigation) {
             isAdded = true;
         } else if (isSingleTopReplacement) {
-            // Single Top 模式 意味着在回退栈中稚嫩有一个实例
+            // Single Top 模式 意味着在回退栈中只有一个实例
             // Single Top means we only want one instance on the back stack
             if (mBackStack.size() > 1) {
                 // If the Fragment to be replaced is on the FragmentManager's
