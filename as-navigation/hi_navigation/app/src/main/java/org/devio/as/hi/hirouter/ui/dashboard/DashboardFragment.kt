@@ -31,7 +31,7 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-        Log.e("fragment", "DashboardFragment,onCreateView")
+        Log.e(TAG, "onCreateView")
         return root
     }
 
