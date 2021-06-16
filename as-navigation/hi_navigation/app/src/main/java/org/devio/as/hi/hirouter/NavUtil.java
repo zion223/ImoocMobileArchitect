@@ -89,18 +89,14 @@ public class NavUtil {
                     //FragmentNavigator.Destination node = navigator.createDestination();
                     node.setId(destination.id);
                     node.setClassName(destination.clazName);
-
                     navGraph.addDestination(node);
-
                     break;
                 }
                 case "dailog": {
                     DialogFragmentNavigator navigator = provider.getNavigator(DialogFragmentNavigator.class);
                     DialogFragmentNavigator.Destination node = navigator.createDestination();
-
                     node.setId(destination.id);
                     node.setClassName(destination.clazName);
-
                     navGraph.addDestination(node);
                     break;
                 }
