@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 //        navController!!.navigate(R.id.navigation_notifications, Bundle.EMPTY)
 //        navController!!.navigate(Uri.parse("www.imooc.com"))
 //
-//        navController!!.navigateUp()
-//        navController!!.popBackStack(R.id.navigation_dashboard,false)
+//        navController!!.navigateUp() // 回退到上一个页面
+//        navController!!.popBackStack(R.id.navigation_dashboard,false) // false 指定目标也不需要被弹出
     }
 }

@@ -35,10 +35,12 @@ abstract class NavDestination{
 
     @interface ClassType{Class<?> value}
     String mNavigatorName;
-    int id
+    NavGraph mParent
+    int mId
 
+    setId(int id)
     onInflate(Context context AttributeSet attrs)
-
+    addArgument(String argumentName NavArgument argument)
 }
 
 class NavGraph extends NavDestination{

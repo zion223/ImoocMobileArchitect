@@ -17,7 +17,7 @@
 
 <img src="image/技术选型.png" style="zoom:100%">  
 
-<img src="image/navigation.png" style="zoom:100%">
+
 
 
 
