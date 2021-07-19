@@ -1,6 +1,8 @@
 # Android消息机制与类加载
 
 
+## 2.1 Android消息机制之消息生产
+
 <img src="image/Android消息机制1.png" style="zoom:100%"> 
 <img src="image/Android消息机制2.png" style="zoom:100%"> 
 <img src="image/Android消息机制3.png" style="zoom:100%"> 
@@ -8,11 +10,34 @@
 <img src="image/Android消息机制5.png" style="zoom:100%"> 
 <img src="image/Android消息机制6.png" style="zoom:100%"> 
 <img src="image/Android消息机制7.png" style="zoom:100%"> 
-<img src="image/Android消息机制8.png" style="zoom:100%"> 
+<img src="image/Android消息机制8.png" style="zoom:100%">
+
+ ## 2.2 Android消息机制之消息生产
+
 <img src="image/Android消息机制9.png" style="zoom:100%"> 
 <img src="image/Android消息机制10.png" style="zoom:100%"> 
-<img src="image/Android消息机制11.png" style="zoom:100%"> 
+
+## 2.3 Android消息机制之消息消费
+
+<img src="image/Android消息机制11.png" style="zoom:100%">
 <img src="image/Android消息机制12.png" style="zoom:100%"> 
 <img src="image/Android消息机制13.png" style="zoom:100%"> 
 <img src="image/Android消息机制14.png" style="zoom:100%"> 
 <img src="image/Android消息机制15.png" style="zoom:100%"> 
+
+## 2.4 Android消息机制之ThreadLocal
+
+
+## 3.1 Android类加载之双亲委派
+
+## 3.2 Android类加载之高频面试题
+## 4.1 走进Android热修复世界1
+
+## 4.2 走进Android热修复世界2
+## 5.1 实战：主项目接入Tinker
+
+## 6.1 Tinker实现原理之补丁全量合成流程分析
+
+## 6.2 Tinker实现原理之补丁全量合成流程分析-2
+## 6.3 Tinker实现原理分析之动态加载dex实现热修复流程分析
+
