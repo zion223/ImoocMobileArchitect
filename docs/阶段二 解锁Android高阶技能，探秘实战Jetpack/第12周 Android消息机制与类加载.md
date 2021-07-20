@@ -62,6 +62,12 @@
 
 ## 6.1 Tinker实现原理之补丁全量合成流程分析
 
+<img src="image/Tinker实现原理剖析1.png" style="zoom:100%"> 
+<img src="image/Tinker实现原理剖析2.png" style="zoom:100%"> 
+<img src="image/Tinker实现原理剖析3.png" style="zoom:100%"> 
+
+
+
 ## 6.2 Tinker实现原理之补丁全量合成流程分析-2
 ## 6.3 Tinker实现原理分析之动态加载dex实现热修复流程分析
 
