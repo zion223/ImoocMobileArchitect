@@ -46,7 +46,16 @@
 ## 3.2 Android类加载之高频面试题
 
 <img src="image/Android类加载机制8.png" style="zoom:100%"> 
+
 ## 4.1 走进Android热修复世界1
+
+<img src="image/Android热修复1.png" style="zoom:100%"> 
+<img src="image/Android热修复2.png" style="zoom:100%"> 
+<img src="image/Android热修复3.png" style="zoom:100%"> 
+<img src="image/Android热修复4.png" style="zoom:100%"> 
+<img src="image/Android热修复5.png" style="zoom:100%"> 
+<img src="image/Android热修复6.png" style="zoom:100%"> 
+
 
 ## 4.2 走进Android热修复世界2
 ## 5.1 实战：主项目接入Tinker
