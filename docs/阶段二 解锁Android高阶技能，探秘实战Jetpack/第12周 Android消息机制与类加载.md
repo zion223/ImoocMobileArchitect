@@ -27,10 +27,25 @@
 
 ## 2.4 Android消息机制之ThreadLocal
 
+<img src="image/Android消息机制16.png" style="zoom:100%"> 
+<img src="image/Android消息机制17.png" style="zoom:100%"> 
+<img src="image/Android消息机制18.png" style="zoom:100%"> 
+<img src="image/Android消息机制19.png" style="zoom:100%"> 
+<img src="image/Android消息机制20.png" style="zoom:100%"> 
 
 ## 3.1 Android类加载之双亲委派
 
+<img src="image/Android类加载机制1.png" style="zoom:100%"> 
+<img src="image/Android类加载机制2.png" style="zoom:100%"> 
+<img src="image/Android类加载机制3.png" style="zoom:100%"> 
+<img src="image/Android类加载机制4.png" style="zoom:100%"> 
+<img src="image/Android类加载机制5.png" style="zoom:100%"> 
+<img src="image/Android类加载机制6.png" style="zoom:100%"> 
+<img src="image/Android类加载机制7.png" style="zoom:100%"> 
+
 ## 3.2 Android类加载之高频面试题
+
+<img src="image/Android类加载机制8.png" style="zoom:100%"> 
 ## 4.1 走进Android热修复世界1
 
 ## 4.2 走进Android热修复世界2
