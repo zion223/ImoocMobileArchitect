@@ -50,8 +50,25 @@
 - 内置对错误处理功能的支持，包括刷新和重试功能。
 - 不足之处，不支持列表数据增删改查
 
-
 ## 3.1 Lifecycle组件架构实现原理-1
+
+- 什么是Lifecycle
+- 如何使用Lifecycle观察宿主状态
+- Fragment是如何实现Lifecycle
+- Activity是如何实现Lifecycle
+- Lifecycle是如何分发宿主状态的
+
+
+### 什么是Lifecycle
+- 具备宿主生命周期感知能力的组件。它能持有组件生命周期状态的信息，并且允许其他观察者监听宿主的状态
+
+### Lifecycle如何使用
+
+
+
+
+
+
 
 
 ## 3.2 Lifecycle组件架构实现原理-2
