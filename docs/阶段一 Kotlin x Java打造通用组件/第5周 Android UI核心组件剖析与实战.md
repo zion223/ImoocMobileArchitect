@@ -114,7 +114,12 @@
         }
     }
 ```
-<img src="image/Handler消息屏障.png" style="zoom:80%">
+
+### Handler之消息屏障消息
+
+- Handler消息有同步消息、异步消息、屏障消息
+- 屏障消息的设计是为了让异步消息优先执行。从而使得ViewRootImpl中UI测量、布局、绘制尽早来执行
+
 
 <img src="image/View三大流程.png" style="zoom:80%">
 
