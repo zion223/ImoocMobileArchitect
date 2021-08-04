@@ -1,55 +1,55 @@
 # Android UI核心组件剖析与实战
 
 
-<img src="image/第五周内容总览.png" style="zoom:70%">
+
 
 ## 2.1开机到SystemServer进程及服务创建流程剖析
+
 <img src="image/Launcher启动流程与ActivityThread深入分析.png" style="zoom:70%">
-<img src="image/android系统开机流程图.png" style="zoom:70%">
+
+<img src="image/android系统开机流程图.png" style="zoom:90%">
+
+### 来自Launcher应用的启动与拓展
+- 1.在分析Zygote进程创建之后，会进入Java世界，ZygoteInit.java。那么如何实现C++转到Java的呢？ Java调用C++方法可以通过JNI调用。C++是如何访问Java实例方法和静态方法
+
+<img src="image/C++调用Java.png" style="zoom:80%">
+
+
+ZygoteInit.java中的main()方法启动SystemServer.java启动不同类型的系统服务，在SystemServer中的startOtherServices()方法中在启动完其他服务后会通知ActivityManagerService调用它的syetemReady()方法就可以启动Launcher应用。
+
 <img src="image/SystemServer启动服务.png" style="zoom:80%">
 
 ## 2.2 Launcher应用启动之进程启动1
 
 <img src="image/Launcher启动流程.png" style="zoom:80%">
 
-<img src="image/Launcher进程启动流程图.png" style="zoom:80%">
+
+### Activity任务栈模型
+
+<img src="image/Activity任务栈模型.png" style="zoom:80%">
+
+
+<img src="image/Launcher进程启动流程图.png" style="zoom:90%">
 
 
 ### Android10 中Launcher启动过程为如下  
-- ActivityManagerService.systemReady() -> ActivityTaskManagerService.startHomeOnAllDisplays() -> - -RootWindowContainer.startHomeOnDisplay() -> startHomeOnTaskDisplayArea()
+- ActivityManagerService.systemReady() -> ActivityTaskManagerService.startHomeOnAllDisplays() -> RootWindowContainer.startHomeOnDisplay() -> startHomeOnTaskDisplayArea() -> ActivityStartController.startHomeActivity() -> ActivityStarter.startActivity()
 
 ```java
- /**
-     * This starts home activity on display areas that can have system decorations based on
-     * displayId - default display area always uses primary home component.
-     * For secondary display areas, the home activity must have category SECONDARY_HOME and then
-     * resolves according to the priorities listed below.
-     *  - If default home is not set, always use the secondary home defined in the config.
-     *  - Use currently selected primary home activity.
-     *  - Use the activity in the same package as currently selected primary home activity.
-     *    If there are multiple activities matched, use first one.
-     *  - Use the secondary home defined in the config.
-     */
-    boolean startHomeOnTaskDisplayArea(int userId, String reason, TaskDisplayArea taskDisplayArea,
-            boolean allowInstrumenting, boolean fromHomeKey) {
-        // Fallback to top focused display area if the provided one is invalid.
+    // ActivityStartController.java
+    void startHomeActivity(Intent intent, ActivityInfo aInfo, String reason) {
+        mSupervisor.moveHomeStackTaskToTop(reason);
 
-        Intent homeIntent = null;
-        ActivityInfo aInfo = null;
-        if (taskDisplayArea == getDefaultTaskDisplayArea()) {
-            // 启动Launcher的Intent
-            homeIntent = mService.getHomeIntent();
-            aInfo = resolveHomeActivity(userId, homeIntent);
-        } else if (shouldPlaceSecondaryHomeOnDisplayArea(taskDisplayArea)) {
-            Pair<ActivityInfo, Intent> info = resolveSecondaryHomeActivity(userId, taskDisplayArea);
-            aInfo = info.first;
-            homeIntent = info.second;
+        mLastHomeActivityStartResult = obtainStarter(intent, "startHomeActivity: " + reason)
+                .setOutActivity(tmpOutRecord)
+                .setCallingUid(0)
+                .setActivityInfo(aInfo)
+                //在ActivityStarter中启动Activity
+                .execute();
+        mLastHomeActivityStartRecord = tmpOutRecord[0];
+        if (mSupervisor.inResumeTopActivity) {
+            mSupervisor.scheduleResumeTopActivities();
         }
-        ...
-        // 交给ActivityStartController去处理
-        mService.getActivityStartController().startHomeActivity(homeIntent, aInfo, myReason,
-                taskDisplayArea);
-        return true;
     }
 ```
 
