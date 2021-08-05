@@ -72,9 +72,14 @@ ZygoteInit.java中的main()方法启动SystemServer.java启动不同类型的系
 <img src="image/Activity核心知识点.png" style="zoom:80%">
 
 ### 如何在Activity中获取View的宽和高?  
-<br/> 
+<br/>
+
+- View.post(Runnable action)
+- View.getViewTreeObserver().addOnGlobalLayoutListener(OnGlobalLayoutListener listener) 可能回调多次
 
 ### View的测绘流程的入口?
+
+ActivityThread.handleResumeActivity() -> WindowManagerGlobal.addView() -> ViewRootImpl.setView() -> ViewRootImpl.performTraversals() 
 
 ## 3.2 Activity之View树测绘流程分析-2
 ### ViewRootImpl的相关功能
@@ -138,6 +143,44 @@ ZygoteInit.java中的main()方法启动SystemServer.java启动不同类型的系
 ## 3.4 Activity之手势分发来源
 
 <img src="image/手势分发流程图.png" style="zoom:80%">
+
+
+```java
+// 线程调用栈信息Log
+W System.err:    at com.ryg.reveallayout.ui.FrameLayoutEx.onTouchEvent(FrameLayoutEx.java:27)
+W System.err:    at android.view.View.dispatchTouchEvent(View.java:9294)
+W System.err:    at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:2547)
+W System.err:    at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2240)
+W System.err:    at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:2553)
+W System.err:    at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2197)
+W System.err:    at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:2553)
+W System.err:    at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2197)
+W System.err:    at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:2553)
+W System.err:    at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2197)
+W System.err:    at com.android.internal.policy.PhoneWindow$DecorView.superDispatchTouchEvent(PhoneWindow.java:2403)
+W System.err:    at com.android.internal.policy.PhoneWindow.superDispatchTouchEvent(PhoneWindow.java:1737)
+W System.err:    at android.app.Activity.dispatchTouchEvent(Activity.java:2765)
+W System.err:    at com.android.internal.policy.PhoneWindow$DecorView.dispatchTouchEvent(PhoneWindow.java:2364)
+W System.err:    at android.view.View.dispatchPointerEvent(View.java:9514)
+W System.err:    at android.view.ViewRootImpl$ViewPostImeInputStage.processPointerEvent(ViewRootImpl.java:4230)
+W System.err:    at android.view.ViewRootImpl$ViewPostImeInputStage.onProcess(ViewRootImpl.java:4096)
+W System.err:    at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:3642)
+W System.err:    at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:3695)
+W System.err:    at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:3661)
+W System.err:    at android.view.ViewRootImpl$AsyncInputStage.forward(ViewRootImpl.java:3787)
+W System.err:    at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:3669)
+W System.err:    at android.view.ViewRootImpl$AsyncInputStage.apply(ViewRootImpl.java:3844)
+W System.err:    at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:3642)
+W System.err:    at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:3695)
+W System.err:    at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:3661)
+W System.err:    at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:3669)
+W System.err:    at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:3642)
+W System.err:    at android.view.ViewRootImpl.deliverInputEvent(ViewRootImpl.java:5922)
+W System.err:    at android.view.ViewRootImpl.doProcessInputEvents(ViewRootImpl.java:5896)
+W System.err:    at android.view.ViewRootImpl.enqueueInputEvent(ViewRootImpl.java:5857)
+W System.err:    at android.view.ViewRootImpl$WindowInputEventReceiver.onInputEvent(ViewRootImpl.java:6025)
+W System.err:    at android.view.InputEventReceiver.dispatchInputEvent(InputEventReceiver.java:185)
+```
 
 ## 3.5 Activity之任务栈管理
 ## 4.1 Fragment之FragmentTraction事务执行流程分析
