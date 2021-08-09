@@ -201,7 +201,12 @@ W System.err:    at android.view.InputEventReceiver.dispatchInputEvent(InputEven
 
 ## 4.3 Fragment之页面重叠与新版懒加载-2
 
-<img src="image/单Activity开发模式探讨.png" style="zoom:70%">
+单Activity开发模式探讨
+
+|                       | 灵活性  | 响应速度| 稳定性 | 拓展性
+|  ----                 | ----    |  ----  | ----  |---- |
+| 多Activity            | 一般     | 一般   | 高    | 高   |
+| 单Activity多Fragment  | 高       | 高     |  低   | 一般 |
 
 ## 5.1 RecyclerView家族图谱分析
 
