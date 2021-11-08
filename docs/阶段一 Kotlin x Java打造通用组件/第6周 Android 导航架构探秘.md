@@ -15,8 +15,6 @@
 
 <img src="image/路由库异同点2.png" style="zoom:100%">  
 
-<img src="image/技术选型.png" style="zoom:100%">  
-
 
 
 
