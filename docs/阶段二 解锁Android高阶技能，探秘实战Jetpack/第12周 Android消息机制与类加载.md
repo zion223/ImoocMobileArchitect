@@ -35,7 +35,15 @@
 
 ## 3.1 Android类加载之双亲委派
 
-<img src="image/Android类加载机制1.png" style="zoom:100%"> 
+### 深入理解Android类加载机制
+
+- 什么是双亲委派
+- 双亲委派下的Class文件加载流程
+- Android中主要的类加载器
+- PathClassLoader & DexClassLoader到底有何异同
+- Class文件不同的加载方式
+- Class文件加载源码分析
+
 <img src="image/Android类加载机制2.png" style="zoom:100%"> 
 <img src="image/Android类加载机制3.png" style="zoom:100%"> 
 <img src="image/Android类加载机制4.png" style="zoom:100%"> 
