@@ -92,7 +92,7 @@ public class HiTabTopLayout extends HorizontalScrollView implements IHiTabLayout
 
     @Nullable
     @Override
-    public HiTabTop findTab(@NonNull HiTabTopInfo info) {
+    public HiTabTop findTab(@NonNull HiTabTopInfo<?> info) {
         ViewGroup ll = getRootLayout(false);
         for (int i = 0; i < ll.getChildCount(); i++) {
             View child = ll.getChildAt(i);
@@ -107,11 +107,11 @@ public class HiTabTopLayout extends HorizontalScrollView implements IHiTabLayout
     }
 
     @Override
-    public void defaultSelected(@NonNull HiTabTopInfo defaultInfo) {
+    public void defaultSelected(@NonNull HiTabTopInfo<?> defaultInfo) {
         onSelected(defaultInfo);
     }
 
-    private void onSelected(@NonNull HiTabTopInfo nextInfo) {
+    private void onSelected(@NonNull HiTabTopInfo<?> nextInfo) {
         for (OnTabSelectedListener<HiTabTopInfo<?>> listener : tabSelectedChangeListeners) {
             listener.onTabSelectedChange(infoList.indexOf(nextInfo), selectedInfo, nextInfo);
         }
@@ -126,7 +126,7 @@ public class HiTabTopLayout extends HorizontalScrollView implements IHiTabLayout
      *
      * @param nextInfo 点击tab的info
      */
-    private void autoScroll(HiTabTopInfo nextInfo) {
+    private void autoScroll(HiTabTopInfo<?> nextInfo) {
         HiTabTop tabTop = findTab(nextInfo);
         if (tabTop == null) return;
         int index = infoList.indexOf(nextInfo);

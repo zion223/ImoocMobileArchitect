@@ -124,11 +124,7 @@ public class HiTabBottom extends RelativeLayout implements IHiTab<HiTabBottomInf
         if (prevInfo != tabInfo && nextInfo != tabInfo || prevInfo == nextInfo) {
             return;
         }
-        if (prevInfo == tabInfo) {
-            inflateInfo(false, false);
-        } else {
-            inflateInfo(true, false);
-        }
+        inflateInfo(prevInfo != tabInfo, false);
     }
 
     @ColorInt
